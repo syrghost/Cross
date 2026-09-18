@@ -51,5 +51,15 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Cross.sln"
+    "dotnet.defaultSolution": "Cross.sln",
+    "cSpell.words": [
+        "Actu",
+        "arme",
+        "Behaviour",
+        "Changement",
+        "degat",
+        "generales",
+        "Scriptable",
+        "trouver"
+    ]
 }

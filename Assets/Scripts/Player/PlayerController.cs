@@ -8,11 +8,12 @@ public class PlayerController : MonoBehaviour
 {
     [Header ( " Parametre Mouvement")]
     public float gravite = -9.6f ;
-    public float seuilAngle180 = 130f; // Angle demi tour
+    public float seuilAngle180 = 160f; // Angle demi tour
     private CharacterController controller;
     private Animator animator;
     private Transform camTransform;
     private Vector3 velocityY;
+    public modeFocus modeFocus;
     
     void Start()
     {
@@ -33,6 +34,10 @@ public class PlayerController : MonoBehaviour
 
     void CalculerMouvementEtEnvoyerAAnimator()
     {
+        if (modeFocus.focusActiver == true)
+        {
+            return;
+        }
         // recuperer input player
         float inputHorizontal = Input.GetAxis("Horizontal");
         float inputVertical = Input.GetAxis("Vertical");
@@ -62,8 +67,8 @@ public class PlayerController : MonoBehaviour
 
 
             if( Mathf.Abs(angleDelta) >=  seuilAngle180 && animator.GetFloat("vitesse") > 0.5f)
-            {
-                animator.SetTrigger("Action180");
+            { 
+                animator.SetTrigger("Action180");   
             }   
 
             
@@ -112,17 +117,29 @@ public class PlayerController : MonoBehaviour
         controller.Move(new Vector3(0,velocityY.y,0) * Time.deltaTime);
     }
 
-    void OnAnatorMove()
+    void OnAnimatorMove()
     {
+        bool estEnAction = !animator.GetCurrentAnimatorStateInfo(1).IsName("Rien");
         if ( animator == null)
+        {
+            return;
+        }
+        if (modeFocus !=null && modeFocus.focusActiver && !estEnAction)
         {
             return;
         }
 
         Vector3 rootMotionXZ = new Vector3(animator.deltaPosition.x, 0f , animator.deltaPosition.z);
-
         controller.Move(rootMotionXZ);
-
         transform.rotation *= animator.deltaRotation;
+
+
+
+        
+    }
+
+    public void DeplacementStrafe(Vector3 direction, float vitesse)
+    {
+        controller.Move(direction * vitesse * Time.deltaTime);
     }
 }

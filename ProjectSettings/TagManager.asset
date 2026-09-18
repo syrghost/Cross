@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ennemis
+  - AttachementDos
+  - AttachementCeinture
   layers:
   - Default
   - TransparentFX
