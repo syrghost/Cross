@@ -7,6 +7,7 @@ TagManager:
   - Ennemis
   - AttachementDos
   - AttachementCeinture
+  - pointFlecheEnnemi
   layers:
   - Default
   - TransparentFX

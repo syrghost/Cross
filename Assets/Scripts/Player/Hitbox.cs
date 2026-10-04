@@ -1,43 +1,48 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
-   public int degat ;
-   private bool active = false;
+    public int degat;
+    private bool active = false;
+    private Collider col;
+    private readonly HashSet<Vie> dejaTouches = new HashSet<Vie>();
 
-   public void Activer()
+    void Awake()
     {
-        active = true;
+        col = GetComponent<Collider>();
+        col.enabled = false;
     }
+
+    public void Activer()
+    {
+        dejaTouches.Clear();  
+        active = true;
+        col.enabled = true;   
+    }
+
     public void Desactiver()
     {
         active = false;
-    }
-    void Start()
-    {
-        
+        col.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other) { Toucher(other); }
+    void OnTriggerStay(Collider other)  { Toucher(other); } 
+
+    void Toucher(Collider other)
     {
-        
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if(!active) return;
-        if ( !other.CompareTag("Ennemis")) return;
+        if (!active) return;
 
-        Vie vieEnnemi = other.GetComponent<Vie>();
+        Vie vie = other.GetComponentInParent<Vie>();
+        if (vie == null || !vie.CompareTag("Ennemis")) return;
+        if (!dejaTouches.Add(vie)) return;   
 
-        if (vieEnnemi != null)
-        {
-            vieEnnemi.SubirDegat(degat);
-        }
+        vie.SubirDegat(degat);
 
+        Animator anim = vie.GetComponent<Animator>();
+        if (anim != null) anim.SetTrigger("subirDegat");
 
-        Debug.Log("toucher" + "" + other.name);
+        Debug.Log("Touché : " + vie.name);
     }
 }

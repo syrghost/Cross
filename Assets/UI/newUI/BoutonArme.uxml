@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/newUI/bouton.uss?fileID=7433441132597879392&amp;guid=f286da90828e0c120b366b78620769a1&amp;type=3#bouton" />
+    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="boutonArme" class="bouton" style="font-size: 10px;">
+        <ui:Label tabindex="-1" text="texteNomArme&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="texteNomArme" />
+    </ui:Button>
+</ui:UXML>

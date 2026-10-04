@@ -13,8 +13,22 @@ MonoBehaviour:
   m_Name: mainNues
   m_EditorClassIdentifier: 
   nomArme: poings
-  degat: 10
-  porteeAttaque: 1
+  degat: 3
+  porteeAttaque: 2
   nomTriggerAnimator: attaque
   nomStateAnimator: attaque
-  dureeActivationHitbox: 0.5
+  dureeActivationHitbox: 5
+  positionDos: {x: 0, y: 0, z: 0}
+  rotationDos: {x: 0, y: 0, z: 0}
+  positionMain: {x: 0, y: 0, z: 0}
+  rotationMain: {x: 0, y: 0, z: 0}
+  monTypeArme: 0
+  indexCarquois: 0
+  positionCarquois: {x: 0, y: 0, z: 0}
+  rotationCarquois: {x: 0, y: 0, z: 0}
+  utiliserAimentation: 1
+  angleDetectionAimentation: 60
+  distanceLunge: 10
+  distanceArret: 0
+  dureeLunge: 0.2
+  dureeRotationLunge: 0.1

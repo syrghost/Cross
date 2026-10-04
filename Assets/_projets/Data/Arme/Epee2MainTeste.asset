@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2924388e846bb838c9474a2e6587cc39, type: 3}
+  m_Name: Epee2MainTeste
+  m_EditorClassIdentifier: 
+  nomArme: epee large
+  degat: 10
+  porteeAttaque: 1
+  nomTriggerAnimator: attaque
+  nomStateAnimator: 
+  dureeActivationHitbox: 0.2
+  positionDos: {x: 0.13, y: 0.1, z: -0.14}
+  rotationDos: {x: 0, y: 0, z: -208}
+  positionMain: {x: -0.015, y: 0.11, z: 0.003}
+  rotationMain: {x: -29, y: 5, z: 46}
+  monTypeArme: 3
+  indexCarquois: 0
+  positionCarquois: {x: 0, y: 0, z: 0}
+  rotationCarquois: {x: 0, y: 0, z: 0}

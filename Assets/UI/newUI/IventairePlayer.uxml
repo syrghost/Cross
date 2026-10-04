@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="BoutonArme" src="project://database/Assets/UI/newUI/BoutonArme.uxml?fileID=9197481963319205126&amp;guid=f8f87ff86db8b0cc69ce166d5b18211e&amp;type=3#BoutonArme" />
+    <ui:VisualElement name="Iventaire" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Inventaire" parse-escape-sequences="true" display-tooltip-when-elided="true" style="justify-content: flex-start; align-items: stretch; margin-top: 6px; margin-right: 6px; margin-bottom: 6px; margin-left: 6px; -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&quot;); font-size: 20px; -unity-font-style: bold; color: rgb(23, 42, 150); -unity-text-align: upper-center; -unity-text-outline-color: rgba(42, 132, 137, 0); text-shadow: 0 0 0 rgba(23, 142, 133, 0); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0);" />
+        <ui:VisualElement name="contenuListe" style="flex-grow: 1;">
+            <ui:Instance template="BoutonArme" name="BoutonArme" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

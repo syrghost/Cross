@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: arcTeste
   m_EditorClassIdentifier: 
   nomArme: Arc
-  degat: 10
+  degat: 15
   porteeAttaque: 1
-  nomTriggerAnimator: 
+  nomTriggerAnimator: attaque
   nomStateAnimator: 
   dureeActivationHitbox: 0.2
   positionDos: {x: 0.1, y: 0.1, z: -0.2}
@@ -23,3 +23,12 @@ MonoBehaviour:
   positionMain: {x: -0.01, y: 0.09, z: 0.02}
   rotationMain: {x: 16.2, y: 192.1, z: 81.9}
   monTypeArme: 4
+  indexCarquois: 0
+  positionCarquois: {x: -0.13, y: -0.5, z: -0.2}
+  rotationCarquois: {x: 3.3, y: 7.4, z: -23.9}
+  utiliserAimentation: 0
+  angleDetectionAimentation: 60
+  distanceLunge: 3
+  distanceArret: 1.2
+  dureeLunge: 0.2
+  dureeRotationLunge: 0.1

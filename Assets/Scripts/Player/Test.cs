@@ -1,28 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Test : MonoBehaviour
 {
     public inventaireManager inv;
-    public Arme arme;
-    private bool equipee = false ;
-    // Start is called before the first frame update
+    public switchEmplacementArme switchEmplacementArme;
+    public PlayerController playerController;
+    private InputAction equiperAction;
+    private Arme derniereArmeEquipee; 
     void Start()
     {
-        
+        var controls = playerController.controls;
+        equiperAction = controls.Player.changerArme;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!equiperAction.WasPressedThisFrame()) return;
+
+        if (inv.armeEquipeeActu != null)
         {
-            inv.equiperArme(arme);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
+            derniereArmeEquipee = inv.armeEquipeeActu; // on retient avant de désequiper
             inv.desequiperArme();
+        }
+        else if (derniereArmeEquipee != inv.mainNue)
+        {
+            inv.equiperArme(derniereArmeEquipee);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class switchEmplacementArme : MonoBehaviour
 {
@@ -14,24 +15,29 @@ public class switchEmplacementArme : MonoBehaviour
 
     public bool armeEnMain = false ; 
     public Animator animator;
-    private armeData armeData;
+    public armeData armeData;
     private bool enCourDeChangement = false;
+
+    public bool mainSurCorde = false;
+
+    public PlayerController playerController;
+    private InputAction degainerAction;
     
     void Start()
     {
-   
+        var controls = playerController.controls;
+        degainerAction = controls.Player.Degainer;
         
     }
 
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T)  && ! enCourDeChangement && armeActu != null)
+        if (degainerAction.WasPressedThisFrame()  && ! enCourDeChangement && armeActu != null)
         {
             enCourDeChangement = true;
-            armeEnMain = !armeEnMain;
             
-            if ( !armeEnMain)
+            if (armeEnMain)
             {
                 animator.SetTrigger("triggerRanger");
             }
@@ -50,14 +56,16 @@ public class switchEmplacementArme : MonoBehaviour
 
     public void sortiLance()
     {
-        positionnerArme();
         armeEnMain = true;
+        positionnerArme();
+       
 
     }
     public void rangerLance()
     {
+        armeEnMain= false;
        positionnerArme();
-       armeEnMain= false;
+      
     }
 
     public void finChangementArme()
@@ -113,5 +121,12 @@ public class switchEmplacementArme : MonoBehaviour
         }
         return armeData.arme.monTypeArme;
     } 
+
+
+    public void activerSuiviCorde()
+    {
+        mainSurCorde = true ;
+        Debug.Log("je suis ");
+    }
 
 }

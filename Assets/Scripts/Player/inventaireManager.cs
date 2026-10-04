@@ -14,6 +14,7 @@ public class inventaireManager : MonoBehaviour
     [Header("Donnee")]
     public List<Arme> armesPossedee = new List<Arme>();
     public Arme armeEquipeeActu;
+    public Arme mainNue;
     void Start()
     {
         
@@ -21,6 +22,16 @@ public class inventaireManager : MonoBehaviour
 
     void Update()
     {
+       
+        
+        if ( armeEquipeeActu == null )
+        {
+            equiperArme(mainNue);
+        }
+
+
+
+
         
     }
 
@@ -38,8 +49,12 @@ public class inventaireManager : MonoBehaviour
     {
         if(!armesPossedee.Contains(arme))
         {
-            Debug.LogWarning("impossible d'equiper une arme non possedee " + arme.nomArme);
-            return;
+            if (arme != mainNue)
+            {
+                Debug.LogWarning("impossible d'equiper une arme non possedee " + arme.nomArme);
+                return;
+            }
+            
         }
         gestionnaireArme.equiperVisuel(arme);
 
@@ -51,16 +66,18 @@ public class inventaireManager : MonoBehaviour
     public void desequiperArme()
     {
         Debug.Log("desequiper");
+        if (armeEquipeeActu.monTypeArme == Arme.typeArme.mainNues) return;
         if(armeEquipeeActu == null)
         {
             Debug.Log("armeEquipeeActu est null, on sort");
             return;
         }
+        
         Debug.Log("on continue, on masque l'arme");
         gestionnaireArme.masquerArmeEquipee();
         switchEmplacementArme.definirArmeActu(null);
 
-        armeEquipeeActu= null;
+        armeEquipeeActu= mainNue;
         switchEmplacementArme.armeEnMain = false;
         Debug.Log("fin de la fonction ");
     }

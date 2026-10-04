@@ -6,6 +6,7 @@ public class armeData : MonoBehaviour
 {
     public Arme arme;
     public Renderer[] renderers;
+    public Hitbox hitbox;
     void Start()
     {
         

@@ -37,6 +37,19 @@ public class Arme : ScriptableObject
     }
 
     public typeArme monTypeArme;
+    [Header("Si l'arme est un arc")]
+    public int indexCarquois; //position dans le tableau de gestion carquois 
+
+    public Vector3 positionCarquois;
+    public Vector3 rotationCarquois;
+
+    [Header("Aimentation / lunge")]
+    public bool utiliserAimentation = true;
+    public float angleDetectionAimentation = 60f;
+    public float distanceLunge = 3f;
+    public float distanceArret = 1.2f;
+    public float dureeLunge = 0.2f;
+    public float dureeRotationLunge = 0.1f;
 
     void Start()
     {
