@@ -300,12 +300,14 @@ public class modeFocus : MonoBehaviour
             
         else if (enVisee && camTransform != null && !focusActiver )
         {
+            
             if ( !switchEmplacementArme.armeEnMain)
             {
                 directionCible = Vector3.zero;
             }
             else
             {
+                
                 directionCible = camTransform.forward;
             }
 

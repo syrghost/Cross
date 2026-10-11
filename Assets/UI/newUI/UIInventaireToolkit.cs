@@ -14,8 +14,15 @@ public class UIInventaireToolkit : MonoBehaviour
     private VisualElement root; 
     private bool inventaireActiver = false;
     public PlayerController playerController;
+    
     private InputAction inventaireAction;
+    private InputAction precedentsAction; 
+    private InputAction suivantsAction;   
     private playerControls controls; 
+
+    // Gestion des onglets / catégories
+    private enum Categorie { Armes, Armures }
+    private Categorie categorieActuelle = Categorie.Armes;
 
     void OnEnable()
     {
@@ -23,8 +30,6 @@ public class UIInventaireToolkit : MonoBehaviour
         root = uiDocument.rootVisualElement;
 
         contenuListe = root.Q<VisualElement>("contenuListe");
-
-        ActualiserListe();
     }
  
     void Start()
@@ -32,37 +37,53 @@ public class UIInventaireToolkit : MonoBehaviour
         root.style.display = DisplayStyle.None;
         inventaireActiver = false;
         controls = playerController.controls;
+        
         inventaireAction = controls.Player.Inventaire;
+        precedentsAction = controls.Ui.precedents;
+        suivantsAction = controls.Ui.suivants;
 
-        controls.Ui.Disable(); // au repos, la map Ui n'a pas besoin d'être active
+        controls.Ui.Disable(); 
     }
-
 
     void Update()
     {
         if (inventaireAction.WasPressedThisFrame() && !inventaireActiver)
         {
-            // Ouverture
             inventaireActiver = true;
             root.style.display = DisplayStyle.Flex;
+            
+            categorieActuelle = Categorie.Armes; 
             ActualiserListe();
+            
             controls.Player.Disable();
             controls.Ui.Enable();
             DonnerFocusInitial();
-    }
-        else if (inventaireActiver && controls.Ui.retour.WasPressedThisFrame())
+        }
+        else if (inventaireActiver)
         {
-            // Fermeture via Cancel/Retour dans la map Ui
-            inventaireActiver = false;
-            root.style.display = DisplayStyle.None;
-            controls.Ui.Disable();
-            controls.Player.Enable();
+            if (controls.Ui.retour.WasPressedThisFrame())
+            {
+                inventaireActiver = false;
+                root.style.display = DisplayStyle.None;
+                controls.Ui.Disable();
+                controls.Player.Enable();
+                return;
+            }
+
+            if (precedentsAction.WasPressedThisFrame())
+            {
+                categorieActuelle = Categorie.Armes;
+                ActualiserListe();
+                DonnerFocusInitial();
+            }
+            else if (suivantsAction.WasPressedThisFrame())
+            {
+                categorieActuelle = Categorie.Armures;
+                ActualiserListe();
+                DonnerFocusInitial();
+            }
         }
     }
-
-
-
-    
 
     void DonnerFocusInitial()
     {
@@ -76,26 +97,49 @@ public class UIInventaireToolkit : MonoBehaviour
 
         contenuListe.Clear();
  
-        foreach (Arme arme in inv.armesPossedee)
+        if (categorieActuelle == Categorie.Armes)
         {
-            TemplateContainer nouveauBouton = boutonArmeTemplate.Instantiate();
- 
-            Label texte = nouveauBouton.Q<Label>("texteNomArme");
-            if (texte != null)
+            // --- AFFICHAGE DES ARMES ---
+            foreach (Arme arme in inv.armesPossedee)
             {
-                texte.text = arme.nomArme;
-            }
- 
-            Arme armeCapturee = arme;
- 
-            Button bouton = nouveauBouton.Q<Button>("boutonArme");
-            if (bouton != null)
-            {
-                bouton.focusable = true; 
-                bouton.clicked += () => inv.equiperArme(armeCapturee);
-            }
+                TemplateContainer nouveauBouton = boutonArmeTemplate.Instantiate();
+     
+                Label texte = nouveauBouton.Q<Label>("texteNomArme");
+                if (texte != null) texte.text = arme.nomArme;
+     
+                Arme armeCapturee = arme;
+                Button bouton = nouveauBouton.Q<Button>("boutonArme");
+                if (bouton != null)
+                {
+                    bouton.focusable = true; 
+                    // Utilisation de la méthode de bascule
+                    bouton.clicked += () => inv.GererClicArme(armeCapturee);
+                }
 
-            contenuListe.Add(nouveauBouton);
+                contenuListe.Add(nouveauBouton);
+            }
+        }
+        else if (categorieActuelle == Categorie.Armures)
+        {
+            // --- AFFICHAGE DES ARMURES ---
+            foreach (Armure armure in inv.armurePossedee) // Correction du 's' ici
+            {
+                TemplateContainer nouveauBouton = boutonArmeTemplate.Instantiate();
+     
+                Label texte = nouveauBouton.Q<Label>("texteNomArme");
+                if (texte != null) texte.text = armure.nomArmure;
+     
+                Armure armureCapturee = armure;
+                Button bouton = nouveauBouton.Q<Button>("boutonArme");
+                if (bouton != null)
+                {
+                    bouton.focusable = true; 
+                    // Utilisation de la méthode de bascule
+                    bouton.clicked += () => inv.GererClicArmure(armureCapturee);
+                }
+
+                contenuListe.Add(nouveauBouton);
+            }
         }
     }
 }

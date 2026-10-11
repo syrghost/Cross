@@ -12,9 +12,9 @@ public class ObjetConsommableAuSol : MonoBehaviour
         if (! other.CompareTag("Player")) return;
 
         VieJoueur vie = other.GetComponent<VieJoueur>();
-        if ( vie != null && consommable.quantiteSoin > 0)
+        if ( vie != null && consommable.quantiterSoinRecu > 0)
         {
-            vie.Soigner(consommable.quantiteSoin);
+            vie.Soigner(consommable.quantiterSoinRecu);
         }
 
         Destroy(gameObject);

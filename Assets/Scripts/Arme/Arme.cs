@@ -5,12 +5,14 @@ using System.IO.Enumeration;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu (fileName = "NouvelleArme" , menuName = " Combat / Arme")]
+[CreateAssetMenu (fileName = "NouvelleArme" , menuName = "Combat / Arme")]
 public class Arme : ScriptableObject
 {
     [Header("Infos generales")]
     public string nomArme ;
     public int degat = 10 ;
+
+    public Sprite icone ;
     public float porteeAttaque = 1 ;
 
     [Header("Animation")]
@@ -51,14 +53,4 @@ public class Arme : ScriptableObject
     public float dureeLunge = 0.2f;
     public float dureeRotationLunge = 0.1f;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

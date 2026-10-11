@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: petitePotionSoin
   m_EditorClassIdentifier: 
   nomObjet: petite potion de soin
+  imageConsommable: {fileID: 21300000, guid: d83129ef66c361b41a41dd02e0c6a70f, type: 3}
   description: hyper cool
-  quantiteSoin: 30
-  quantiteMana: 0
+  quantiterMax: 99
+  tuConsomme: 0
+  quantiterSoinRecu: 40
+  quantiterManaRecu: 0

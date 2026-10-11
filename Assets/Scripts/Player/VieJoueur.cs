@@ -6,7 +6,7 @@ public class VieJoueur : MonoBehaviour
 {
 
     public  int  vieMax  = 100;
-    private int vieActuelle;
+    public int vieActuelle  {get ; private set;}
 
     [Header("invincibiliter apres coup")]
     public float dureeInvinciblite;

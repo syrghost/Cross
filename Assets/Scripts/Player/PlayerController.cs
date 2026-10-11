@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Références & Modes")]
     public modeFocus modeFocus;
+    public bool inputBloquer = false ;
 
     
     private CharacterController controller;
@@ -31,9 +32,9 @@ public class PlayerController : MonoBehaviour
     // Variables de rotation internes du template
     private float _targetRotation = 0.0f;
     private float _rotationVelocity;
-    public float multiplicateurVitesse = 2f;
+    public float multiplicateurVitesse = 1;
     public playerControls controls;
-    private InputAction moveAction,sautAction;
+    private InputAction moveAction,sautAction,courirAction;
 
     public PlayerCombat playerCombat;
     public float vitesseRotationAttaque = 15f;
@@ -41,8 +42,14 @@ public class PlayerController : MonoBehaviour
     [Header("saut")]
     public float hauteurSaut  = 1.2f;
     private Vector3 vitesseAir;
-    private bool  enSaut;
-    public float distanceSaut = 10f ;
+    public bool  enSaut;
+    public float distanceSautCourse = 10f ;
+    public float distanceSautMarche = 5f ;
+
+    public float vitesseMarche = 0.5f;
+    public float vitesseCourse = 1f ;
+
+    public float lissageVitesse = 0.1f ;
 
 
     void Start()
@@ -61,6 +68,8 @@ public class PlayerController : MonoBehaviour
         controls= new playerControls();
         moveAction = controls.Player.Move;
         sautAction = controls.Player.saut;
+        courirAction = controls.Player.courir;
+
     }
     void OnEnable()
     {
@@ -79,6 +88,8 @@ public class PlayerController : MonoBehaviour
 
         if (enSaut)
         {
+            float distanceSaut = 0f ;
+            distanceSaut = courirAction.IsPressed() ? distanceSautCourse : distanceSautMarche ; 
             controller.Move(vitesseAir * distanceSaut * Time.deltaTime);
         }
     }
@@ -86,7 +97,7 @@ public class PlayerController : MonoBehaviour
     void CalculerMouvementEtEnvoyerAAnimator()
     {
         
-        if (modeFocus != null && modeFocus.focusActiver)
+        if (inputBloquer ||modeFocus != null && modeFocus.focusActiver)
         {
             
             animator.SetFloat("vitesse", 0f, 0.1f, Time.deltaTime);
@@ -99,7 +110,7 @@ public class PlayerController : MonoBehaviour
         Vector2 rawInput = moveAction.ReadValue<Vector2>();
         Vector2 inputDirection = rawInput.normalized;
 
-        float intensiteInput = Mathf.Clamp01(inputDirection.magnitude);
+        
         float angleDelta = 0f;
 
         
@@ -117,21 +128,27 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
         }
 
+        float vitesseCible = 0f ;
+        if(inputDirection != Vector2.zero)
+        {
+            vitesseCible = courirAction.IsPressed() ? vitesseCourse : vitesseMarche ;
+        }
+
         
-        if (intensiteInput > 0.85f) intensiteInput = 1f;
-        if (intensiteInput > 0.1f) animator.SetFloat("derniereVitesse", intensiteInput);
+        
+        if (vitesseCible > 0.1f) animator.SetFloat("derniereVitesse", vitesseCible);
 
        
         float vitesseAngulaireCible = Mathf.Clamp(angleDelta / 90f, -1f, 1f);
 
         
-        if (intensiteInput <= 0.1f && Mathf.Abs(angleDelta) < 20f) 
+        if (vitesseCible <= 0.1f && Mathf.Abs(angleDelta) < 20f) 
         {
             vitesseAngulaireCible = 0f;
         }
 
         
-        animator.SetFloat("vitesse", intensiteInput);
+        animator.SetFloat("vitesse", vitesseCible , lissageVitesse , Time.deltaTime);
         animator.SetFloat("vitesseAngulaire", vitesseAngulaireCible, 0.1f, Time.deltaTime);
     }
 
@@ -161,7 +178,7 @@ public class PlayerController : MonoBehaviour
         bool auSol = controller.isGrounded;
         animator.SetBool("estAuSol", auSol);
        
-        bool occuper = (playerCombat != null && playerCombat.enTrainDattaquer ) || (modeFocus != null && (modeFocus.focusActiver || modeFocus.enTrainDeTirer));
+        bool occuper = inputBloquer || (playerCombat != null && playerCombat.enTrainDattaquer ) || (modeFocus != null && (modeFocus.focusActiver || modeFocus.enTrainDeTirer));
         if(auSol && !occuper && sautAction.WasPressedThisFrame())
         {
             velocityY.y = Mathf.Sqrt(hauteurSaut * -2f * gravite);

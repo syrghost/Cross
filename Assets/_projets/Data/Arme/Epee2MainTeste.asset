@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomArme: epee large
   degat: 10
+  icone: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
   porteeAttaque: 1
   nomTriggerAnimator: attaque
   nomStateAnimator: 
@@ -26,3 +27,9 @@ MonoBehaviour:
   indexCarquois: 0
   positionCarquois: {x: 0, y: 0, z: 0}
   rotationCarquois: {x: 0, y: 0, z: 0}
+  utiliserAimentation: 1
+  angleDetectionAimentation: 60
+  distanceLunge: 3
+  distanceArret: 1.2
+  dureeLunge: 0.2
+  dureeRotationLunge: 0.1

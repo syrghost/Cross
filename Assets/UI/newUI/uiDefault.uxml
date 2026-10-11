@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:ProgressBar value="0" high-value="100" name="vieJoueur" style="width: 260px; flex-direction: column; align-items: stretch; align-self: center; background-image: url(&quot;project://database/Assets/UI/textureUI/kenny/PNG/barRed_horizontalMid.png?fileID=2800000&amp;guid=6fddc77a24b1e1e33a2a0e685ac22dee&amp;type=3#barRed_horizontalMid&quot;); -unity-background-image-tint-color: rgb(89, 57, 57); display: flex; cursor: url(&quot;project://database/Assets/UI/textureUI/kenny/PNG/barGreen_horizontalLeft.png?fileID=2800000&amp;guid=c74979de6910ba69e9db8fb8085d697a&amp;type=3#barGreen_horizontalLeft&quot;);" />
+    </ui:VisualElement>
+</ui:UXML>

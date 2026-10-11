@@ -8,6 +8,7 @@ TagManager:
   - AttachementDos
   - AttachementCeinture
   - pointFlecheEnnemi
+  - socketCasque
   layers:
   - Default
   - TransparentFX

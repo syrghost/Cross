@@ -181,6 +181,51 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""utiliserPotion"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec1ce878-819f-4ee4-8c62-924f2aa540c0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""courir"",
+                    ""type"": ""Button"",
+                    ""id"": ""6db56326-024d-4c2f-9648-88286f8cf008"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""consommableSuivant"",
+                    ""type"": ""Button"",
+                    ""id"": ""19d163a0-1828-40da-a943-8583a638714b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""consommablePrecedent"",
+                    ""type"": ""Button"",
+                    ""id"": ""72a2c67c-07da-4fb1-b689-a7fbcc5d856d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ouvrirArme"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ae204f2-3345-4afd-ab9e-a13c8ccd3a92"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -341,7 +386,7 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b59dab76-3f9a-49c2-bc8a-707d44a33b7f"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -447,6 +492,116 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""action"": ""saut"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d8ec23b-ee88-403c-a760-c950b8edc957"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""utiliserPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47260056-c5e4-434e-a40e-23c51244707f"",
+                    ""path"": ""<Keyboard>/u"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""utiliserPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9278d655-e742-4ea2-923c-c084c27b0e37"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""courir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ac7e9df-5cc8-4351-82bb-780900991733"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""courir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b8ec122-347a-4d37-8efc-353e0b07dab5"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""consommableSuivant"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f14a1fc-5e8a-41a1-a803-ca0e5b1eea78"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""consommableSuivant"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfe60fa9-b452-4253-9020-074d071a927d"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""consommablePrecedent"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f027c5f-d564-49e5-8ece-43637d53ae4d"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""consommablePrecedent"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab6bb308-6543-4734-a8e1-a6e280b3ab92"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ouvrirArme"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7f0ca53-1b85-4dcc-a3ce-a16270b90ce4"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ouvrirArme"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -494,6 +649,24 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""name"": ""clickSouris"",
                     ""type"": ""Button"",
                     ""id"": ""45c6d004-5446-41e6-a8d7-6c968b72403e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""precedents"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d75429e-d3ce-48b1-9110-6aad59517086"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""suivants"",
+                    ""type"": ""Button"",
+                    ""id"": ""46d31f06-017b-4c35-8d80-ef6016966fba"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -687,6 +860,182 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""action"": ""clickSouris"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfbcec98-3a6c-477d-8ee7-317a7433142c"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""precedents"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e03c0b4-6a50-457f-8c42-9c60d3ac4f0d"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""precedents"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df6ad2f4-85df-4fed-a0bc-ead4b10f22e2"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""suivants"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a54cb0e-7eea-4cfe-9cf0-e3084e6a4754"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""suivants"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""equipementArme"",
+            ""id"": ""5c1fd5c4-a93d-4234-9094-4847504298a7"",
+            ""actions"": [
+                {
+                    ""name"": ""gauche"",
+                    ""type"": ""Button"",
+                    ""id"": ""07c3f477-b5b3-4696-bb8c-88ea46b65b83"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""droite"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b1ec0c8-caf7-43da-a079-ce385c7a9ca8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""entrer"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5880f36-083b-4eb3-87e9-86ff924f5246"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""retour"",
+                    ""type"": ""Button"",
+                    ""id"": ""f48cd0f8-9ad8-4322-a525-fabe4521ca2a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d4d19017-20f2-4b3b-8d88-3b7d2276bda6"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""gauche"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3d5aa3f-3251-4100-b9ab-cba5618e0e09"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""gauche"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdb27547-09b6-4849-b05d-b76dead8a93c"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""droite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a225712-99ad-486b-9dc1-88b2f71e2e81"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""droite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84ba0364-d837-455c-ab48-310d32339171"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""entrer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a347327-593e-415c-b590-e926075b6852"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""entrer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45b26568-1d4c-4f82-87b0-6d6f101c717d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""retour"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6807d097-7cb3-4efe-80c4-b6247f273d6a"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""retour"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -733,6 +1082,11 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         m_Player_Inventaire = m_Player.FindAction("Inventaire", throwIfNotFound: true);
         m_Player_changerArme = m_Player.FindAction("changerArme", throwIfNotFound: true);
         m_Player_saut = m_Player.FindAction("saut", throwIfNotFound: true);
+        m_Player_utiliserPotion = m_Player.FindAction("utiliserPotion", throwIfNotFound: true);
+        m_Player_courir = m_Player.FindAction("courir", throwIfNotFound: true);
+        m_Player_consommableSuivant = m_Player.FindAction("consommableSuivant", throwIfNotFound: true);
+        m_Player_consommablePrecedent = m_Player.FindAction("consommablePrecedent", throwIfNotFound: true);
+        m_Player_ouvrirArme = m_Player.FindAction("ouvrirArme", throwIfNotFound: true);
         // Ui
         m_Ui = asset.FindActionMap("Ui", throwIfNotFound: true);
         m_Ui_navigationManette = m_Ui.FindAction("navigationManette", throwIfNotFound: true);
@@ -740,12 +1094,21 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         m_Ui_retour = m_Ui.FindAction("retour", throwIfNotFound: true);
         m_Ui_navigationSouris = m_Ui.FindAction("navigationSouris", throwIfNotFound: true);
         m_Ui_clickSouris = m_Ui.FindAction("clickSouris", throwIfNotFound: true);
+        m_Ui_precedents = m_Ui.FindAction("precedents", throwIfNotFound: true);
+        m_Ui_suivants = m_Ui.FindAction("suivants", throwIfNotFound: true);
+        // equipementArme
+        m_equipementArme = asset.FindActionMap("equipementArme", throwIfNotFound: true);
+        m_equipementArme_gauche = m_equipementArme.FindAction("gauche", throwIfNotFound: true);
+        m_equipementArme_droite = m_equipementArme.FindAction("droite", throwIfNotFound: true);
+        m_equipementArme_entrer = m_equipementArme.FindAction("entrer", throwIfNotFound: true);
+        m_equipementArme_retour = m_equipementArme.FindAction("retour", throwIfNotFound: true);
     }
 
     ~@playerControls()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, playerControls.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Ui.enabled, "This will cause a leak and performance issues, playerControls.Ui.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_equipementArme.enabled, "This will cause a leak and performance issues, playerControls.equipementArme.Disable() has not been called.");
     }
 
     /// <summary>
@@ -831,6 +1194,11 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Inventaire;
     private readonly InputAction m_Player_changerArme;
     private readonly InputAction m_Player_saut;
+    private readonly InputAction m_Player_utiliserPotion;
+    private readonly InputAction m_Player_courir;
+    private readonly InputAction m_Player_consommableSuivant;
+    private readonly InputAction m_Player_consommablePrecedent;
+    private readonly InputAction m_Player_ouvrirArme;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -882,6 +1250,26 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/saut".
         /// </summary>
         public InputAction @saut => m_Wrapper.m_Player_saut;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/utiliserPotion".
+        /// </summary>
+        public InputAction @utiliserPotion => m_Wrapper.m_Player_utiliserPotion;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/courir".
+        /// </summary>
+        public InputAction @courir => m_Wrapper.m_Player_courir;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/consommableSuivant".
+        /// </summary>
+        public InputAction @consommableSuivant => m_Wrapper.m_Player_consommableSuivant;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/consommablePrecedent".
+        /// </summary>
+        public InputAction @consommablePrecedent => m_Wrapper.m_Player_consommablePrecedent;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ouvrirArme".
+        /// </summary>
+        public InputAction @ouvrirArme => m_Wrapper.m_Player_ouvrirArme;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -938,6 +1326,21 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @saut.started += instance.OnSaut;
             @saut.performed += instance.OnSaut;
             @saut.canceled += instance.OnSaut;
+            @utiliserPotion.started += instance.OnUtiliserPotion;
+            @utiliserPotion.performed += instance.OnUtiliserPotion;
+            @utiliserPotion.canceled += instance.OnUtiliserPotion;
+            @courir.started += instance.OnCourir;
+            @courir.performed += instance.OnCourir;
+            @courir.canceled += instance.OnCourir;
+            @consommableSuivant.started += instance.OnConsommableSuivant;
+            @consommableSuivant.performed += instance.OnConsommableSuivant;
+            @consommableSuivant.canceled += instance.OnConsommableSuivant;
+            @consommablePrecedent.started += instance.OnConsommablePrecedent;
+            @consommablePrecedent.performed += instance.OnConsommablePrecedent;
+            @consommablePrecedent.canceled += instance.OnConsommablePrecedent;
+            @ouvrirArme.started += instance.OnOuvrirArme;
+            @ouvrirArme.performed += instance.OnOuvrirArme;
+            @ouvrirArme.canceled += instance.OnOuvrirArme;
         }
 
         /// <summary>
@@ -979,6 +1382,21 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @saut.started -= instance.OnSaut;
             @saut.performed -= instance.OnSaut;
             @saut.canceled -= instance.OnSaut;
+            @utiliserPotion.started -= instance.OnUtiliserPotion;
+            @utiliserPotion.performed -= instance.OnUtiliserPotion;
+            @utiliserPotion.canceled -= instance.OnUtiliserPotion;
+            @courir.started -= instance.OnCourir;
+            @courir.performed -= instance.OnCourir;
+            @courir.canceled -= instance.OnCourir;
+            @consommableSuivant.started -= instance.OnConsommableSuivant;
+            @consommableSuivant.performed -= instance.OnConsommableSuivant;
+            @consommableSuivant.canceled -= instance.OnConsommableSuivant;
+            @consommablePrecedent.started -= instance.OnConsommablePrecedent;
+            @consommablePrecedent.performed -= instance.OnConsommablePrecedent;
+            @consommablePrecedent.canceled -= instance.OnConsommablePrecedent;
+            @ouvrirArme.started -= instance.OnOuvrirArme;
+            @ouvrirArme.performed -= instance.OnOuvrirArme;
+            @ouvrirArme.canceled -= instance.OnOuvrirArme;
         }
 
         /// <summary>
@@ -1021,6 +1439,8 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Ui_retour;
     private readonly InputAction m_Ui_navigationSouris;
     private readonly InputAction m_Ui_clickSouris;
+    private readonly InputAction m_Ui_precedents;
+    private readonly InputAction m_Ui_suivants;
     /// <summary>
     /// Provides access to input actions defined in input action map "Ui".
     /// </summary>
@@ -1052,6 +1472,14 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Ui/clickSouris".
         /// </summary>
         public InputAction @clickSouris => m_Wrapper.m_Ui_clickSouris;
+        /// <summary>
+        /// Provides access to the underlying input action "Ui/precedents".
+        /// </summary>
+        public InputAction @precedents => m_Wrapper.m_Ui_precedents;
+        /// <summary>
+        /// Provides access to the underlying input action "Ui/suivants".
+        /// </summary>
+        public InputAction @suivants => m_Wrapper.m_Ui_suivants;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1093,6 +1521,12 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @clickSouris.started += instance.OnClickSouris;
             @clickSouris.performed += instance.OnClickSouris;
             @clickSouris.canceled += instance.OnClickSouris;
+            @precedents.started += instance.OnPrecedents;
+            @precedents.performed += instance.OnPrecedents;
+            @precedents.canceled += instance.OnPrecedents;
+            @suivants.started += instance.OnSuivants;
+            @suivants.performed += instance.OnSuivants;
+            @suivants.canceled += instance.OnSuivants;
         }
 
         /// <summary>
@@ -1119,6 +1553,12 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @clickSouris.started -= instance.OnClickSouris;
             @clickSouris.performed -= instance.OnClickSouris;
             @clickSouris.canceled -= instance.OnClickSouris;
+            @precedents.started -= instance.OnPrecedents;
+            @precedents.performed -= instance.OnPrecedents;
+            @precedents.canceled -= instance.OnPrecedents;
+            @suivants.started -= instance.OnSuivants;
+            @suivants.performed -= instance.OnSuivants;
+            @suivants.canceled -= instance.OnSuivants;
         }
 
         /// <summary>
@@ -1152,6 +1592,135 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="UiActions" /> instance referencing this action map.
     /// </summary>
     public UiActions @Ui => new UiActions(this);
+
+    // equipementArme
+    private readonly InputActionMap m_equipementArme;
+    private List<IEquipementArmeActions> m_EquipementArmeActionsCallbackInterfaces = new List<IEquipementArmeActions>();
+    private readonly InputAction m_equipementArme_gauche;
+    private readonly InputAction m_equipementArme_droite;
+    private readonly InputAction m_equipementArme_entrer;
+    private readonly InputAction m_equipementArme_retour;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "equipementArme".
+    /// </summary>
+    public struct EquipementArmeActions
+    {
+        private @playerControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public EquipementArmeActions(@playerControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "equipementArme/gauche".
+        /// </summary>
+        public InputAction @gauche => m_Wrapper.m_equipementArme_gauche;
+        /// <summary>
+        /// Provides access to the underlying input action "equipementArme/droite".
+        /// </summary>
+        public InputAction @droite => m_Wrapper.m_equipementArme_droite;
+        /// <summary>
+        /// Provides access to the underlying input action "equipementArme/entrer".
+        /// </summary>
+        public InputAction @entrer => m_Wrapper.m_equipementArme_entrer;
+        /// <summary>
+        /// Provides access to the underlying input action "equipementArme/retour".
+        /// </summary>
+        public InputAction @retour => m_Wrapper.m_equipementArme_retour;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_equipementArme; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="EquipementArmeActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(EquipementArmeActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="EquipementArmeActions" />
+        public void AddCallbacks(IEquipementArmeActions instance)
+        {
+            if (instance == null || m_Wrapper.m_EquipementArmeActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_EquipementArmeActionsCallbackInterfaces.Add(instance);
+            @gauche.started += instance.OnGauche;
+            @gauche.performed += instance.OnGauche;
+            @gauche.canceled += instance.OnGauche;
+            @droite.started += instance.OnDroite;
+            @droite.performed += instance.OnDroite;
+            @droite.canceled += instance.OnDroite;
+            @entrer.started += instance.OnEntrer;
+            @entrer.performed += instance.OnEntrer;
+            @entrer.canceled += instance.OnEntrer;
+            @retour.started += instance.OnRetour;
+            @retour.performed += instance.OnRetour;
+            @retour.canceled += instance.OnRetour;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="EquipementArmeActions" />
+        private void UnregisterCallbacks(IEquipementArmeActions instance)
+        {
+            @gauche.started -= instance.OnGauche;
+            @gauche.performed -= instance.OnGauche;
+            @gauche.canceled -= instance.OnGauche;
+            @droite.started -= instance.OnDroite;
+            @droite.performed -= instance.OnDroite;
+            @droite.canceled -= instance.OnDroite;
+            @entrer.started -= instance.OnEntrer;
+            @entrer.performed -= instance.OnEntrer;
+            @entrer.canceled -= instance.OnEntrer;
+            @retour.started -= instance.OnRetour;
+            @retour.performed -= instance.OnRetour;
+            @retour.canceled -= instance.OnRetour;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="EquipementArmeActions.UnregisterCallbacks(IEquipementArmeActions)" />.
+        /// </summary>
+        /// <seealso cref="EquipementArmeActions.UnregisterCallbacks(IEquipementArmeActions)" />
+        public void RemoveCallbacks(IEquipementArmeActions instance)
+        {
+            if (m_Wrapper.m_EquipementArmeActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="EquipementArmeActions.AddCallbacks(IEquipementArmeActions)" />
+        /// <seealso cref="EquipementArmeActions.RemoveCallbacks(IEquipementArmeActions)" />
+        /// <seealso cref="EquipementArmeActions.UnregisterCallbacks(IEquipementArmeActions)" />
+        public void SetCallbacks(IEquipementArmeActions instance)
+        {
+            foreach (var item in m_Wrapper.m_EquipementArmeActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_EquipementArmeActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="EquipementArmeActions" /> instance referencing this action map.
+    /// </summary>
+    public EquipementArmeActions @equipementArme => new EquipementArmeActions(this);
     private int m_KeybordMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1255,6 +1824,41 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSaut(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "utiliserPotion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUtiliserPotion(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "courir" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCourir(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "consommableSuivant" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnConsommableSuivant(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "consommablePrecedent" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnConsommablePrecedent(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ouvrirArme" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOuvrirArme(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Ui" which allows adding and removing callbacks.
@@ -1298,5 +1902,55 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnClickSouris(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "precedents" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPrecedents(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "suivants" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSuivants(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "equipementArme" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="EquipementArmeActions.AddCallbacks(IEquipementArmeActions)" />
+    /// <seealso cref="EquipementArmeActions.RemoveCallbacks(IEquipementArmeActions)" />
+    public interface IEquipementArmeActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "gauche" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGauche(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "droite" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDroite(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "entrer" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEntrer(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "retour" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRetour(InputAction.CallbackContext context);
     }
 }

@@ -31,14 +31,13 @@ public class gestionnaireArmeJoueur : MonoBehaviour
             transformAttachementCeinture = AttachementCeinture.transform;
         }
 
+        
+    }
+    private void Awake() {
         construireRegistre();
     }
 
     
-    void Update()
-    {
-        
-    }
 
     Transform obtenirSlotPourType(Arme.typeArme type)
     {

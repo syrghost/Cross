@@ -16,7 +16,7 @@ public class switchEmplacementArme : MonoBehaviour
     public bool armeEnMain = false ; 
     public Animator animator;
     public armeData armeData;
-    private bool enCourDeChangement = false;
+    public bool enCourDeChangement = false;
 
     public bool mainSurCorde = false;
 

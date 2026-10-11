@@ -8,7 +8,7 @@ public class fleche : MonoBehaviour
     public int degat = 1;
     public float vitesseInitial = 25f;
     public float dureeDeVie = 5f;
-    public float gravite =5f;
+    public float gravite =2f;
 
     private Vector3 velocite;
     public bool aToucher = false;

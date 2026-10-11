@@ -7,20 +7,20 @@ public class Consommable : ScriptableObject
 {
     [Header("info general")]
     public string nomObjet;
-    public string description;
 
-    [Header("Effet")]
-    public int quantiteSoin;
-    public int quantiteMana;
-    
-    void Start()
-    {
-        
-    }
+    public Sprite imageConsommable;
+    [TextArea] public string description;
+    public int quantiterMax =99;
 
-    
-    void Update()
+    public enum typeConsommable
     {
-        
+        potionSoin,
+        potionMana,
+        potionResu
     }
-}
+    public typeConsommable tuConsomme;
+    public int quantiterSoinRecu;
+    public int quantiterManaRecu;
+    
+
+}   
