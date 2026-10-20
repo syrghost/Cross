@@ -16,6 +16,8 @@ public class Test : MonoBehaviour
         equiperAction = controls.Player.changerArme;
     }
 
+    void OnEnable()  { GestionnaireQuete.OnQueteChange += q => Debug.Log("Changée : " + q.titre); }
+
     void Update()
     {
         if (!equiperAction.WasPressedThisFrame()) return;

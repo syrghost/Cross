@@ -100,7 +100,7 @@ MonoBehaviour:
   degat: 0
   vitesseInitial: 25
   dureeDeVie: 8
-  gravite: 9.8
+  gravite: 2
   aToucher: 0
 --- !u!65 &6326745085663666300
 BoxCollider:

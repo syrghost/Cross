@@ -29,7 +29,12 @@ public class inventaireManager : MonoBehaviour
     [Header("consommable")]
     public Consommable consommableEquiper;
 
+
+
+
     public GameObject player;
+
+
     void Start()
     {
         
@@ -155,7 +160,7 @@ public class inventaireManager : MonoBehaviour
     {
         slotConsommable slot = slots.Find(s=> s.objet == objet);
 
-        if (slot.quantiter <= 0 || slot == null) return false ;
+        if ( slot == null || slot.quantiter <= 0 ) return false ;
 
         slot.quantiter -- ;
 
@@ -247,6 +252,49 @@ public class inventaireManager : MonoBehaviour
         {
             gestionaireArmure.equiper(armure);
         }
+    }
+
+
+// ------------------POUR LES RECOMPENSE DE QUETE ------------------------------------
+    void recevoirRecompense(recompense r)
+    {
+
+        switch (r.type)
+        {
+            case typeRecompense.objet :
+                if(r.objet is Consommable c)
+                {
+                    int ajoute = ajouterConsommable(c , r.quantiter);
+                    if(ajoute < r.quantiter) Debug.LogWarning("inventaire plein") ;
+
+                    
+                }
+                else if(r.objet is Arme a)
+                {
+                    ajouterArme(a) ;
+                } 
+
+                else if (r.objet is Armure A)
+                {
+                    ajouterArmure(A);
+                }
+                break ;
+            // -----------------POUR D'AUTRE RECOMPENSE -----------------
+            case typeRecompense.argent :
+                break ;
+        } 
+            
+        
+    }
+
+    void OnEnable()
+    {
+        GestionnaireQuete.OnRecompense += recevoirRecompense;
+    }
+
+    void OnDisable()
+    {
+        GestionnaireQuete.OnRecompense -= recevoirRecompense ;
     }
 
 

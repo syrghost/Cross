@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ public class Vie : MonoBehaviour
 {
     public int vieMax = 30 ;
     private int vieActuelle;
+
+    public string idEnnemie ;
+
+    public static event Action<Vie> onMort;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +36,10 @@ public class Vie : MonoBehaviour
     void Mourir()
     {
         Debug.Log(gameObject.name + " est morts");
+        onMort?.Invoke(this);
+
+        evenementsJeu.Declencher(typeObjectif.tuer, idEnnemie) ;
+
         Destroy(gameObject);
     }
 }

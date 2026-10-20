@@ -226,6 +226,15 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""parler"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b8573be-6589-4c0b-adeb-69cb99a96540"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -600,6 +609,28 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ouvrirArme"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e084cbf4-dc9f-44f6-8f61-12cf02e8df88"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""parler"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a469758-5b7d-42fd-8ca7-1bdbf9b10082"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""parler"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1038,6 +1069,107 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""7d99ce7a-1cda-4be3-b5cc-0ac03f207749"",
+            ""actions"": [
+                {
+                    ""name"": ""suivant"",
+                    ""type"": ""Button"",
+                    ""id"": ""b92e8eda-965b-4275-8c45-67be8d8dc0fb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""oui"",
+                    ""type"": ""Button"",
+                    ""id"": ""60a9e17b-aff7-4e73-a55a-4d2673392846"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""non"",
+                    ""type"": ""Button"",
+                    ""id"": ""d4cdfca7-e9d6-4a39-9108-46fc2ca0ae62"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4187d898-a158-456e-ae14-bab3ac653456"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""suivant"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99b68dd6-1ec2-4f13-b07e-cdeeb6502f9b"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""suivant"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""018313ec-3e65-4841-ad9d-9a9aaead1823"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""oui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb78fe34-dd56-41cf-bd73-4aed2317009c"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""oui"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9bd359ec-f5df-4c11-8eca-81ca78b3b050"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""non"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""425e4801-a457-4744-98e4-9164a0568615"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""non"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1087,6 +1219,7 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         m_Player_consommableSuivant = m_Player.FindAction("consommableSuivant", throwIfNotFound: true);
         m_Player_consommablePrecedent = m_Player.FindAction("consommablePrecedent", throwIfNotFound: true);
         m_Player_ouvrirArme = m_Player.FindAction("ouvrirArme", throwIfNotFound: true);
+        m_Player_parler = m_Player.FindAction("parler", throwIfNotFound: true);
         // Ui
         m_Ui = asset.FindActionMap("Ui", throwIfNotFound: true);
         m_Ui_navigationManette = m_Ui.FindAction("navigationManette", throwIfNotFound: true);
@@ -1102,6 +1235,11 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         m_equipementArme_droite = m_equipementArme.FindAction("droite", throwIfNotFound: true);
         m_equipementArme_entrer = m_equipementArme.FindAction("entrer", throwIfNotFound: true);
         m_equipementArme_retour = m_equipementArme.FindAction("retour", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_suivant = m_Dialogue.FindAction("suivant", throwIfNotFound: true);
+        m_Dialogue_oui = m_Dialogue.FindAction("oui", throwIfNotFound: true);
+        m_Dialogue_non = m_Dialogue.FindAction("non", throwIfNotFound: true);
     }
 
     ~@playerControls()
@@ -1109,6 +1247,7 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, playerControls.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Ui.enabled, "This will cause a leak and performance issues, playerControls.Ui.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_equipementArme.enabled, "This will cause a leak and performance issues, playerControls.equipementArme.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Dialogue.enabled, "This will cause a leak and performance issues, playerControls.Dialogue.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1199,6 +1338,7 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_consommableSuivant;
     private readonly InputAction m_Player_consommablePrecedent;
     private readonly InputAction m_Player_ouvrirArme;
+    private readonly InputAction m_Player_parler;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1271,6 +1411,10 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @ouvrirArme => m_Wrapper.m_Player_ouvrirArme;
         /// <summary>
+        /// Provides access to the underlying input action "Player/parler".
+        /// </summary>
+        public InputAction @parler => m_Wrapper.m_Player_parler;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1341,6 +1485,9 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @ouvrirArme.started += instance.OnOuvrirArme;
             @ouvrirArme.performed += instance.OnOuvrirArme;
             @ouvrirArme.canceled += instance.OnOuvrirArme;
+            @parler.started += instance.OnParler;
+            @parler.performed += instance.OnParler;
+            @parler.canceled += instance.OnParler;
         }
 
         /// <summary>
@@ -1397,6 +1544,9 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @ouvrirArme.started -= instance.OnOuvrirArme;
             @ouvrirArme.performed -= instance.OnOuvrirArme;
             @ouvrirArme.canceled -= instance.OnOuvrirArme;
+            @parler.started -= instance.OnParler;
+            @parler.performed -= instance.OnParler;
+            @parler.canceled -= instance.OnParler;
         }
 
         /// <summary>
@@ -1721,6 +1871,124 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="EquipementArmeActions" /> instance referencing this action map.
     /// </summary>
     public EquipementArmeActions @equipementArme => new EquipementArmeActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
+    private readonly InputAction m_Dialogue_suivant;
+    private readonly InputAction m_Dialogue_oui;
+    private readonly InputAction m_Dialogue_non;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Dialogue".
+    /// </summary>
+    public struct DialogueActions
+    {
+        private @playerControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public DialogueActions(@playerControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/suivant".
+        /// </summary>
+        public InputAction @suivant => m_Wrapper.m_Dialogue_suivant;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/oui".
+        /// </summary>
+        public InputAction @oui => m_Wrapper.m_Dialogue_oui;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/non".
+        /// </summary>
+        public InputAction @non => m_Wrapper.m_Dialogue_non;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="DialogueActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="DialogueActions" />
+        public void AddCallbacks(IDialogueActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DialogueActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DialogueActionsCallbackInterfaces.Add(instance);
+            @suivant.started += instance.OnSuivant;
+            @suivant.performed += instance.OnSuivant;
+            @suivant.canceled += instance.OnSuivant;
+            @oui.started += instance.OnOui;
+            @oui.performed += instance.OnOui;
+            @oui.canceled += instance.OnOui;
+            @non.started += instance.OnNon;
+            @non.performed += instance.OnNon;
+            @non.canceled += instance.OnNon;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="DialogueActions" />
+        private void UnregisterCallbacks(IDialogueActions instance)
+        {
+            @suivant.started -= instance.OnSuivant;
+            @suivant.performed -= instance.OnSuivant;
+            @suivant.canceled -= instance.OnSuivant;
+            @oui.started -= instance.OnOui;
+            @oui.performed -= instance.OnOui;
+            @oui.canceled -= instance.OnOui;
+            @non.started -= instance.OnNon;
+            @non.performed -= instance.OnNon;
+            @non.canceled -= instance.OnNon;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="DialogueActions.UnregisterCallbacks(IDialogueActions)" />.
+        /// </summary>
+        /// <seealso cref="DialogueActions.UnregisterCallbacks(IDialogueActions)" />
+        public void RemoveCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="DialogueActions.AddCallbacks(IDialogueActions)" />
+        /// <seealso cref="DialogueActions.RemoveCallbacks(IDialogueActions)" />
+        /// <seealso cref="DialogueActions.UnregisterCallbacks(IDialogueActions)" />
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DialogueActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DialogueActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="DialogueActions" /> instance referencing this action map.
+    /// </summary>
+    public DialogueActions @Dialogue => new DialogueActions(this);
     private int m_KeybordMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1859,6 +2127,13 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOuvrirArme(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "parler" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnParler(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Ui" which allows adding and removing callbacks.
@@ -1952,5 +2227,34 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRetour(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Dialogue" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="DialogueActions.AddCallbacks(IDialogueActions)" />
+    /// <seealso cref="DialogueActions.RemoveCallbacks(IDialogueActions)" />
+    public interface IDialogueActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "suivant" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSuivant(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "oui" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOui(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "non" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNon(InputAction.CallbackContext context);
     }
 }

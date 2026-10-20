@@ -140,6 +140,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "parler",
+                    "type": "Button",
+                    "id": "8b8573be-6589-4c0b-adeb-69cb99a96540",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -514,6 +523,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ouvrirArme",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e084cbf4-dc9f-44f6-8f61-12cf02e8df88",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "parler",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a469758-5b7d-42fd-8ca7-1bdbf9b10082",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "parler",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -948,6 +979,107 @@
                     "processors": "",
                     "groups": "",
                     "action": "retour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Dialogue",
+            "id": "7d99ce7a-1cda-4be3-b5cc-0ac03f207749",
+            "actions": [
+                {
+                    "name": "suivant",
+                    "type": "Button",
+                    "id": "b92e8eda-965b-4275-8c45-67be8d8dc0fb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "oui",
+                    "type": "Button",
+                    "id": "60a9e17b-aff7-4e73-a55a-4d2673392846",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "non",
+                    "type": "Button",
+                    "id": "d4cdfca7-e9d6-4a39-9108-46fc2ca0ae62",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4187d898-a158-456e-ae14-bab3ac653456",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "suivant",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99b68dd6-1ec2-4f13-b07e-cdeeb6502f9b",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "suivant",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "018313ec-3e65-4841-ad9d-9a9aaead1823",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "oui",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eb78fe34-dd56-41cf-bd73-4aed2317009c",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "oui",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9bd359ec-f5df-4c11-8eca-81ca78b3b050",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "non",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "425e4801-a457-4744-98e4-9164a0568615",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "non",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

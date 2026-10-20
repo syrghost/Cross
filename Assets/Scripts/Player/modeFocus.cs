@@ -13,7 +13,6 @@ public class modeFocus : MonoBehaviour
     private SphereCollider detectionMob;
     private int armeEquiper ;
     public bool focusActiver = false;
-    private bool ennemisAProximiter = false;
     public Animator animator;
     public List<Transform> ennemisDetecter = new List<Transform>();
     public IReadOnlyList<Transform> EnnemisDetectes => ennemisDetecter; 
@@ -58,13 +57,14 @@ public class modeFocus : MonoBehaviour
     public bool pretAchangerCible = true;
 
 
+    public int nbrMenbreFixe ;
+
+
     void Start()
     {
 
         detectionMob = GetComponent<SphereCollider>();
         playerController = player.GetComponent<PlayerController>();
-        if(detectionMob == null) Debug.Log("pas de detection");
-        else Debug.Log("detectionMob trouver");
 
         if(Camera.main != null)
         {
@@ -79,6 +79,8 @@ public class modeFocus : MonoBehaviour
 
         changerCibleAction = controls.Player.CameraControle;
 
+        nbrMenbreFixe = targetGroup.m_Targets.Length ;
+
 
 
     }
@@ -91,57 +93,33 @@ public class modeFocus : MonoBehaviour
         
         if (focusActiver && ennemiCible == null)
         {
-            Debug.Log("L'ennemi ciblé a été éliminé/détruit !");
+           
             
            
             ennemisDetecter.RemoveAll(e => e == null);
+            Transform suivant = trouverEnnemiPlusProche() ;
 
-            if (ennemisDetecter.Count > 0)
-            {
-                
-                targetGroup.RemoveMember(ennemiCible); 
-                ennemiCible = trouverEnnemiPlusProche();
-                if (ennemiCible != null)
-                {
-                    targetGroup.AddMember(ennemiCible, 1f, 1.5f);
-                    Debug.Log("Basculement automatique sur un nouvel ennemi.");
-                }
-            }
-            else
-            {
-                
-                focusActiver = false;
-                camCombat.Priority = 0;
-                ennemisAProximiter = false;
-                animator.SetBool("focusMode", false);
-                Debug.Log("Plus aucun ennemi, désactivation du mode focus.");
-            }
+            if(suivant != null) changerCibleVers(suivant);
+            else SortirDuFocus();
+
+
+
         }
         
 
-        if (ennemisAProximiter == true && focusAction.WasPressedThisFrame() && ennemisDetecter.Count > 0)
+        if ( focusAction.WasPressedThisFrame() && ennemisDetecter.Count > 0)
         {
-            focusActiver = !focusActiver;
+        
             if (focusActiver)
             {
-                
-                ennemisDetecter.RemoveAll(e => e == null);
-                
-                ennemiCible = trouverEnnemiPlusProche();
-                if (ennemiCible != null)
-                {
-                    Debug.Log("je focus l'ennemi");
-                    targetGroup.AddMember(ennemiCible, 1f, 1.5f);
-                    camCombat.Priority = 20;
-                }
-                else
-                {
-                    focusActiver = false; 
-                }
+                SortirDuFocus();
+
             }
             else
             {
-                SortirDuFocus();
+                ennemisDetecter.RemoveAll(e => e == null);
+                Transform cible = trouverEnnemiPlusProche();
+                if(cible != null ) entrerFocus(cible); 
             }
         }
 
@@ -173,22 +151,18 @@ public class modeFocus : MonoBehaviour
         if (focusActiver)
         {
             Vector2 stick = changerCibleAction.ReadValue<Vector2>();
-            Debug.Log("stick.x = " + stick.x + " | pretAchangerCible = " + pretAchangerCible);
             if(Mathf.Abs(stick.x) < 0.2f)
             {
                 pretAchangerCible = true;
             }
             if(pretAchangerCible && Mathf.Abs(stick.x) >= SeuilchangementCible)
             {
-                Debug.Log("CONDITION VRAIE, appel changerCible");
+                
                 pretAchangerCible = false;
                 changerCible(stick.x > 0 ? 1:-1 );
 
             }
-            else
-            {
-                Debug.Log("Condition fausse : pret=" + pretAchangerCible + " abs=" + Mathf.Abs(stick.x));
-            }
+   
         }
 
         animator.SetBool("focusMode", focusActiver);
@@ -200,12 +174,8 @@ public class modeFocus : MonoBehaviour
    
     void SortirDuFocus()
     {
-        if (ennemiCible != null)
-        {
-            targetGroup.RemoveMember(ennemiCible);
-            ennemiCible = null;
-        }
         camCombat.Priority = 0;
+        ennemiCible = null ;
         focusActiver = false;
         animator.SetBool("focusMode", false);
     }
@@ -218,7 +188,6 @@ public class modeFocus : MonoBehaviour
             return;
 
         }
-        ennemisAProximiter = true;
         ennemisDetecter.Add(other.transform);
         Debug.Log("ennemis dectecter");
     }
@@ -229,21 +198,16 @@ public class modeFocus : MonoBehaviour
         {
             return;
         }
-        ennemisAProximiter = ennemisDetecter.Count > 0;
-        Debug.Log("ennemis sortie de la zone");
+       
         ennemisDetecter.Remove(other.transform);
         ennemisDetecter.RemoveAll(e => e == null);
 
         if ( other.transform == ennemiCible)
         {
-            ennemiCible = null;
-            focusActiver = false;
-            targetGroup.RemoveMember(other.transform);
-            camCombat.Priority = 0;
-            animator.SetBool("focusMode",false);
+            SortirDuFocus();
         }
 
-        Debug.Log("Ennemi sorti. Total restant : " + ennemisDetecter.Count);
+       
     }
 
     Transform trouverEnnemiPlusProche()
@@ -272,7 +236,7 @@ public class modeFocus : MonoBehaviour
         {
             return;
         }
-        Vector2 move = moveAction.ReadValue<Vector2>();
+        Vector2 move = moveAction.ReadValue<Vector2>().normalized;
         float inputX = move.x;
         float inputZ =move.y;
         bool estEnAction = !animator.GetCurrentAnimatorStateInfo(1).IsName("Rien");
@@ -361,7 +325,7 @@ public class modeFocus : MonoBehaviour
 
         
         ennemisDetecter.RemoveAll(e => e==null);
-        Debug.Log("changerCible appelée, sens=" + sens + ", nb ennemis détectés=" + ennemisDetecter.Count);
+
         if(ennemisDetecter.Count <=1) return ;
 
         Transform meilleurCible = null;
@@ -378,7 +342,6 @@ public class modeFocus : MonoBehaviour
 
             //angle 
             float angle = Vector3.SignedAngle(camTransform.forward,versEnnemi, Vector3.up);
-            Debug.Log("Ennemi " + e.name + " -> angle = " + angle);
 
             if(sens> 0 && angle <=0) continue;
             if(sens <0 && angle >= 0) continue;
@@ -391,14 +354,14 @@ public class modeFocus : MonoBehaviour
             }
 
 
+
+
         }
 
-        Debug.Log("Meilleure cible trouvée : " + (meilleurCible != null ? meilleurCible.name : "AUCUNE"));
+       
         if(meilleurCible != null)
         {
-            targetGroup.RemoveMember(ennemiCible);
-            ennemiCible = meilleurCible;
-            targetGroup.AddMember(ennemiCible,1f,1.5f);
+            changerCibleVers(meilleurCible);
         }
 
     }
@@ -417,6 +380,32 @@ public class modeFocus : MonoBehaviour
         return ennemi;
 
 
+    }
+
+    void nettoyerGroupe()
+    {
+        var nouveau = new CinemachineTargetGroup.Target[nbrMenbreFixe];
+        Array.Copy(targetGroup.m_Targets , nouveau , nbrMenbreFixe);
+        targetGroup.m_Targets = nouveau ;
+
+    }
+
+    void changerCibleVers(Transform nouvelle)
+    {
+        nettoyerGroupe();
+        ennemiCible = nouvelle ;
+        targetGroup.AddMember(nouvelle , 1f , 1.5f) ;
+
+
+    }
+
+    void entrerFocus(Transform cible)
+    {
+        nettoyerGroupe();
+        ennemiCible = cible ;
+        targetGroup.AddMember(cible , 1f ,1.5f);
+        focusActiver = true ;
+        camCombat.Priority = 20 ;
     }
 
 

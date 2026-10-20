@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public float seuilAngle180 = 160f; 
 
     [Header("Physique & Gravité")]
-    public float gravite = -15.0f; // Valeur du template plus réaliste, modifiable
+    public float gravite = -15.0f; 
 
     [Header("Références & Modes")]
     public modeFocus modeFocus;
@@ -28,13 +28,17 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Transform camTransform;
     private Vector3 velocityY;
+
+    public sprint sprint ;
+
+    private bool peutSprint  => sprint.peutSprint;
     
-    // Variables de rotation internes du template
+   
     private float _targetRotation = 0.0f;
     private float _rotationVelocity;
     public float multiplicateurVitesse = 1;
     public playerControls controls;
-    private InputAction moveAction,sautAction,courirAction;
+    public InputAction moveAction,sautAction,courirAction;
 
     public PlayerCombat playerCombat;
     public float vitesseRotationAttaque = 15f;
@@ -48,9 +52,15 @@ public class PlayerController : MonoBehaviour
 
     public float vitesseMarche = 0.5f;
     public float vitesseCourse = 1f ;
+    
 
     public float lissageVitesse = 0.1f ;
 
+    public Vector2 inputDirection ;
+
+    public interagir interagir ;
+
+    
 
     void Start()
     {
@@ -92,6 +102,7 @@ public class PlayerController : MonoBehaviour
             distanceSaut = courirAction.IsPressed() ? distanceSautCourse : distanceSautMarche ; 
             controller.Move(vitesseAir * distanceSaut * Time.deltaTime);
         }
+
     }
 
     void CalculerMouvementEtEnvoyerAAnimator()
@@ -108,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
         
         Vector2 rawInput = moveAction.ReadValue<Vector2>();
-        Vector2 inputDirection = rawInput.normalized;
+        inputDirection = rawInput.normalized;
 
         
         float angleDelta = 0f;
@@ -131,7 +142,7 @@ public class PlayerController : MonoBehaviour
         float vitesseCible = 0f ;
         if(inputDirection != Vector2.zero)
         {
-            vitesseCible = courirAction.IsPressed() ? vitesseCourse : vitesseMarche ;
+            vitesseCible = (courirAction.IsPressed() && peutSprint ) ? vitesseCourse : vitesseMarche ;
         }
 
         
@@ -150,6 +161,7 @@ public class PlayerController : MonoBehaviour
         
         animator.SetFloat("vitesse", vitesseCible , lissageVitesse , Time.deltaTime);
         animator.SetFloat("vitesseAngulaire", vitesseAngulaireCible, 0.1f, Time.deltaTime);
+        animator.SetBool("sprint", peutSprint);
     }
 
     void AppliquerGravite()
@@ -179,7 +191,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("estAuSol", auSol);
        
         bool occuper = inputBloquer || (playerCombat != null && playerCombat.enTrainDattaquer ) || (modeFocus != null && (modeFocus.focusActiver || modeFocus.enTrainDeTirer));
-        if(auSol && !occuper && sautAction.WasPressedThisFrame())
+        if(auSol && !occuper && sautAction.WasPressedThisFrame() && interagir.pnjProche == null)
         {
             velocityY.y = Mathf.Sqrt(hauteurSaut * -2f * gravite);
             animator.SetTrigger("saut");
