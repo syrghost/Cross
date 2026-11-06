@@ -23,11 +23,14 @@ public class inventaireManager : MonoBehaviour
     public List<Armure> armurePossedee = new List<Armure>();
     public List<slotConsommable>slots = new List<slotConsommable>();
 
+
     public Arme armeEquipeeActu;
     public Arme mainNue;
 
     [Header("consommable")]
     public Consommable consommableEquiper;
+
+    public gestionnaireGrimoireJoueur gestionnaireGrimoire ;
 
 
 
@@ -158,6 +161,7 @@ public class inventaireManager : MonoBehaviour
     }
     public bool utiliserConsommable( Consommable objet)
     {
+        if(objet.utilisableManuellement == false) return false ;
         slotConsommable slot = slots.Find(s=> s.objet == objet);
 
         if ( slot == null || slot.quantiter <= 0 ) return false ;
@@ -170,6 +174,7 @@ public class inventaireManager : MonoBehaviour
 
         // pour les effets 
         VieJoueur vieJoueur = player.GetComponent<VieJoueur>();
+        manaJoueur manaJoueur = player.GetComponent<manaJoueur>();
         Animator animator = player.GetComponent<Animator>();
 
         switch (objet.tuConsomme)
@@ -187,6 +192,13 @@ public class inventaireManager : MonoBehaviour
                 vieJoueur.Soigner(objet.quantiterSoinRecu);
                 break;
             case Consommable.typeConsommable.potionMana :
+                if(manaJoueur == null)
+                {
+                    return false ;
+                }
+                if(animator == null) return false ;
+                animator.SetTrigger("soigner") ;
+                manaJoueur.recuperer(objet.quantiterManaRecu);
                 break;
 
             case Consommable.typeConsommable.potionResu :
@@ -200,15 +212,21 @@ public class inventaireManager : MonoBehaviour
 
     public void equiperConsommable(Consommable objet)
     {
+        if(objet.utilisableManuellement == false) return ;
         if(quantiterConsommable(objet) <= 0) return ;
+        
         consommableEquiper = objet ;
     }
 
     public bool utiliserConsommableEquipee()
     {
+        
+
         if (consommableEquiper == null ) return false ;
+        if(consommableEquiper.utilisableManuellement == false) return false;
 
         bool reussi = utiliserConsommable(consommableEquiper);
+
 
         if (quantiterConsommable(consommableEquiper)<= 0)
         {
@@ -223,7 +241,28 @@ public class inventaireManager : MonoBehaviour
         return slots[index].objet ;
 
     }
-   
+
+//------------------------------ SI LE CONSOMMABLE EST UNE POTION RESU -----------------------
+
+    public List<slotConsommable> potionResuDisponible()
+    {
+        return slots.FindAll( s => s.objet.tuConsomme == Consommable.typeConsommable.potionResu && s.quantiter >0) ; 
+    }
+
+    public bool utiliserResu(Consommable potion , VieJoueur vie)
+    {
+        slotConsommable slot = slots.Find(s => s.objet == potion && s.quantiter>0);
+        if(slot == null ) return false ;
+
+        slot.quantiter -- ;
+        if(slot.quantiter <= 0)
+        {
+            slots.Remove(slot);
+        }
+        vie.ressuciter(potion.pourcentageVieResu);
+        return true ;
+    }
+    
 
 
 // TESTE UI
@@ -278,6 +317,10 @@ public class inventaireManager : MonoBehaviour
                 {
                     ajouterArmure(A);
                 }
+                else if (r.objet is grimoire g)
+                {
+                    ajouterGrimoire( g) ;
+                }
                 break ;
             // -----------------POUR D'AUTRE RECOMPENSE -----------------
             case typeRecompense.argent :
@@ -297,6 +340,33 @@ public class inventaireManager : MonoBehaviour
         GestionnaireQuete.OnRecompense -= recevoirRecompense ;
     }
 
+    //pour les marchand 
+    public bool peutRecevoir(ScriptableObject objet)
+    {
+        if(objet is Consommable c) return quantiterConsommable(c) < c.quantiterMax ;
 
+        if(objet is Arme a) return !armesPossedee.Contains(a);
+        if(objet is Armure A) return !armurePossedee.Contains(A);
+        if(objet is grimoire g ) return !gestionnaireGrimoire.grimoireConnus.Contains(g);
+
+        return false ;
+
+
+    }
+    public void recevoir(ScriptableObject objet)
+    {
+        if(objet is Consommable c) ajouterConsommable(c,1);
+        else if (objet is Arme a) ajouterArme(a);
+        else if(objet is Armure A) ajouterArmure(A);
+        else if (objet is grimoire g) ajouterGrimoire(g);
+
+    }
+
+
+//-----------------------------------------------POUR LES GRIMOIRE ----------------------------------
+    public void ajouterGrimoire( grimoire g)
+    {
+        gestionnaireGrimoire.ajouterGrimoire(g);
+    }
 
 }

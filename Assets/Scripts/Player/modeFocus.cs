@@ -21,6 +21,8 @@ public class modeFocus : MonoBehaviour
     public bool enTrainDeTirer = false;
     public PlayerCombat playerCombat;
     public inventaireManager inv;
+
+ 
     
 
 
@@ -58,6 +60,8 @@ public class modeFocus : MonoBehaviour
 
 
     public int nbrMenbreFixe ;
+    public grimper grimper ;
+    private bool estEnTrainDeGrimper ;
 
 
     void Start()
@@ -88,10 +92,12 @@ public class modeFocus : MonoBehaviour
     
     void Update()
     {
+        
         armeEquiper = (int)switchEmplacementArme.obtenirTypeArmeEquipee();
+        estEnTrainDeGrimper = grimper.estEnTrainDeGrimper ;
 
         
-        if (focusActiver && ennemiCible == null)
+        if (focusActiver && ennemiCible == null )
         {
            
             
@@ -107,7 +113,7 @@ public class modeFocus : MonoBehaviour
         }
         
 
-        if ( focusAction.WasPressedThisFrame() && ennemisDetecter.Count > 0)
+        if ( focusAction.WasPressedThisFrame() && ennemisDetecter.Count > 0 && !estEnTrainDeGrimper)
         {
         
             if (focusActiver)

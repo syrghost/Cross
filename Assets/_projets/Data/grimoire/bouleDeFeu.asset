@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e2fd77463ea83dcb8857b18e5ba79c, type: 3}
+  m_Name: bouleDeFeu
+  m_EditorClassIdentifier: 
+  nomGrimoire: 
+  iconGrimoire: {fileID: 21300000, guid: 8cebf0ef1bafc644bbc3bc8ece37d7fe, type: 3}
+  descriptionGrimoire: 
+  typeSort: 0
+  coutMana: 10
+  degatSort: 10
+  vitesseProjectile: 15
+  dureeVieProjectile: 3
+  rayonZoneProjectile: 5
+  dureeVieZone: 5
+  sort: {fileID: 7510817725721289007, guid: af6728a50dc6ef3ceb94706bc1712c3c, type: 3}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe42d236f56fa98bdac678244c467872, type: 3}
+  m_Name: grinta
+  m_EditorClassIdentifier: 
+  nomBoutique: grinta
+  articles:
+  - objet: {fileID: 11400000, guid: 566a98329229bd74695ec4a75424fc76, type: 2}
+    prix: 300
+    description: 
+  - objet: {fileID: 11400000, guid: 9a5309e7699f2bd8b88854e680e4596c, type: 2}
+    prix: 1200
+    description: ssdd
+  - objet: {fileID: 11400000, guid: a6308a70d4c05b4a0ad7a5a82216cdd6, type: 2}
+    prix: 2000
+    description: ssdd
+  - objet: {fileID: 11400000, guid: 5c04e4533feece5bb94f198d2a5fb7e9, type: 2}
+    prix: 5000
+    description: ssdd

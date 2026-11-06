@@ -15,6 +15,8 @@ public class sprint : MonoBehaviour
     private float endurance ;
     public float maxEndurance = 100 ;
 
+    public float tempsEnduranceGrimpe =  20f ;
+
     public float tempsEndurance  = 20f;
     public float tempsEnduranceRecharge = 40f ;
 
@@ -26,24 +28,42 @@ public class sprint : MonoBehaviour
     private bool enduranceFinis ;
 
     public bool peutSprint = true ;
+
+    public grimper grimper ;
+
+    private bool estEnTrainDeGrimper ;
     void Start()
     {
         endurance = maxEndurance ;
         arrierePlan.gameObject.SetActive(false);
+        
     }
 
     
     void Update()
     {
-        if (playerController.courirAction.IsPressed()&& ! enduranceFinis && playerController.inputDirection != Vector2.zero && !modeFocus.focusActiver && !playerCombat.enTrainDattaquer && !playerController.enSaut && !switchEmplacementArme.enCourDeChangement )
+        estEnTrainDeGrimper = grimper.estEnTrainDeGrimper ;
+        if (playerController.courirAction.IsPressed()&& ! enduranceFinis && playerController.inputDirection != Vector2.zero && !modeFocus.focusActiver && !playerCombat.enTrainDattaquer && !playerController.enSaut && !switchEmplacementArme.enCourDeChangement && !estEnTrainDeGrimper || estEnTrainDeGrimper)
         {
             arrierePlan.gameObject.SetActive(true);
             if(endurance > 0)
             {
-                endurance -= tempsEndurance * Time.deltaTime ;
+                if (estEnTrainDeGrimper)
+                {
+                    endurance -= tempsEnduranceGrimpe   * Time.deltaTime ;
+                }
+                else
+                {
+                    endurance -= tempsEndurance * Time.deltaTime ;
+                }
+                
             }
             else
             {
+                if (estEnTrainDeGrimper)
+                {
+                    //grimper.arreterEscalade() ;
+                }
                 enduranceFinis = true ;
                 peutSprint = false ;
                 

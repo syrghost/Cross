@@ -149,6 +149,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "manaZone",
+                    "type": "Button",
+                    "id": "1499bfb8-0696-461a-acde-c767f485a554",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ouvrirGrimoire",
+                    "type": "Button",
+                    "id": "b2696ddb-9a1b-42d0-a1f4-3631143664ef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -545,6 +563,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "parler",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be4acb97-4dc0-48ed-8852-d5ac5625e112",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "manaZone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e466e4f-e6ff-4efb-9a39-37c9395e4748",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "manaZone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac656160-6ad0-48d0-a46f-a493a050cfec",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ouvrirGrimoire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1014,6 +1065,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "retour",
+                    "type": "Button",
+                    "id": "04749b78-dbb4-4b2c-83a8-574cbc2052ae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1080,6 +1140,96 @@
                     "processors": "",
                     "groups": "",
                     "action": "non",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "347c8163-11db-430f-82e9-0351dc39290f",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "retour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76f5e6a4-c7b9-4393-89f1-ad6be6700220",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "retour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "viseeManaZone",
+            "id": "0780714b-ef11-42e4-a88f-e7b406badb35",
+            "actions": [
+                {
+                    "name": "controleVisee",
+                    "type": "Value",
+                    "id": "13751364-ef00-4475-b01b-4863df9fc7c4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "manaZone",
+                    "type": "Button",
+                    "id": "278beb92-0532-497d-bbad-d8794da390df",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "annulerManaZone",
+                    "type": "Button",
+                    "id": "f7563820-0586-47cc-baed-89844b5f85f6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "33cfe08b-5182-4907-b362-9a964108b57c",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "controleVisee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0038f765-3328-499d-9998-8206d3f9d9ac",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "manaZone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41e5de82-bc51-478b-bdcf-aeed88098dc9",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "annulerManaZone",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

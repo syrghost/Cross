@@ -76,6 +76,12 @@ public class pnjData : MonoBehaviour
             }
         }
 
+        if(aLaFin == null && donnee.boutiqueVendu != null)
+        {
+            boutique b = donnee.boutiqueVendu;
+    aLaFin = () => uiBoutique.instance.Ouvrir(b);
+        }
+
         
 
         Vector3 cible = joueur.position;

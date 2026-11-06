@@ -22,19 +22,29 @@ public class switchEmplacementArme : MonoBehaviour
 
     public PlayerController playerController;
     private InputAction degainerAction;
+    public grimper grimper ;
+
+    private bool estEnTrainDeGrimper ;
+
+    public PlayerCombat playerCombat ;
     
     void Start()
     {
         var controls = playerController.controls;
         degainerAction = controls.Player.Degainer;
+
+        
         
     }
 
     
     void Update()
     {
+        if(playerCombat.enTrainDattaquer) return ;
+        estEnTrainDeGrimper = grimper.estEnTrainDeGrimper ;
         if (degainerAction.WasPressedThisFrame()  && ! enCourDeChangement && armeActu != null)
         {
+            if(estEnTrainDeGrimper) return ;
             enCourDeChangement = true;
             
             if (armeEnMain)

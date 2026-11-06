@@ -21,9 +21,12 @@ public class PlayerCombat : MonoBehaviour
     private bool peutEnchainer = true ;
     public inventaireManager arme ;
 
+    public grimper grimper ;
+
 
     public switchEmplacementArme switchEmplacementArme ;
-
+    private bool estEnTrainDeGrimper ;
+    public instancePotion instancePotion ;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -31,13 +34,19 @@ public class PlayerCombat : MonoBehaviour
         var controls= playerController.controls;
         attaqueAction = controls.Player.Attaque;
 
+        
+
     }
 
 
     void Update()
     {
+        if (instancePotion.peutBoire == false) return ;
+         estEnTrainDeGrimper = grimper.estEnTrainDeGrimper ;
         if (attaqueAction.WasPressedThisFrame() &&  peutEnchainer )
         {
+
+            if(estEnTrainDeGrimper) return ;
              cibleVeroiller = obtenirCible();
 
 

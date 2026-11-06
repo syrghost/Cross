@@ -35,7 +35,9 @@ public class Arme : ScriptableObject
         Lance = 1,
         epeeUneMain = 2,
         epeeDeuxMain = 3,
-        Arc = 4
+        Arc = 4,
+        baton = 5
+
     }
 
     public typeArme monTypeArme;

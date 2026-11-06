@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,13 @@ public class Consommable : ScriptableObject
     public typeConsommable tuConsomme;
     public int quantiterSoinRecu;
     public int quantiterManaRecu;
+
+
+
+    [Range(0f , 1f)] public float pourcentageVieResu = 0.25f ;
+
+    public bool utilisableManuellement => tuConsomme != typeConsommable.potionResu ;
+
     
 
 }   

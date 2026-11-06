@@ -235,6 +235,24 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""manaZone"",
+                    ""type"": ""Button"",
+                    ""id"": ""1499bfb8-0696-461a-acde-c767f485a554"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ouvrirGrimoire"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2696ddb-9a1b-42d0-a1f4-3631143664ef"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -631,6 +649,39 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""parler"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be4acb97-4dc0-48ed-8852-d5ac5625e112"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""manaZone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e466e4f-e6ff-4efb-9a39-37c9395e4748"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""manaZone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac656160-6ad0-48d0-a46f-a493a050cfec"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ouvrirGrimoire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1100,6 +1151,15 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""retour"",
+                    ""type"": ""Button"",
+                    ""id"": ""04749b78-dbb4-4b2c-83a8-574cbc2052ae"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1168,6 +1228,96 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
                     ""action"": ""non"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""347c8163-11db-430f-82e9-0351dc39290f"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""retour"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76f5e6a4-c7b9-4393-89f1-ad6be6700220"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""retour"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""viseeManaZone"",
+            ""id"": ""0780714b-ef11-42e4-a88f-e7b406badb35"",
+            ""actions"": [
+                {
+                    ""name"": ""controleVisee"",
+                    ""type"": ""Value"",
+                    ""id"": ""13751364-ef00-4475-b01b-4863df9fc7c4"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""manaZone"",
+                    ""type"": ""Button"",
+                    ""id"": ""278beb92-0532-497d-bbad-d8794da390df"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""annulerManaZone"",
+                    ""type"": ""Button"",
+                    ""id"": ""f7563820-0586-47cc-baed-89844b5f85f6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""33cfe08b-5182-4907-b362-9a964108b57c"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""controleVisee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0038f765-3328-499d-9998-8206d3f9d9ac"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""manaZone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""41e5de82-bc51-478b-bdcf-aeed88098dc9"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""annulerManaZone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1220,6 +1370,8 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         m_Player_consommablePrecedent = m_Player.FindAction("consommablePrecedent", throwIfNotFound: true);
         m_Player_ouvrirArme = m_Player.FindAction("ouvrirArme", throwIfNotFound: true);
         m_Player_parler = m_Player.FindAction("parler", throwIfNotFound: true);
+        m_Player_manaZone = m_Player.FindAction("manaZone", throwIfNotFound: true);
+        m_Player_ouvrirGrimoire = m_Player.FindAction("ouvrirGrimoire", throwIfNotFound: true);
         // Ui
         m_Ui = asset.FindActionMap("Ui", throwIfNotFound: true);
         m_Ui_navigationManette = m_Ui.FindAction("navigationManette", throwIfNotFound: true);
@@ -1240,6 +1392,12 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         m_Dialogue_suivant = m_Dialogue.FindAction("suivant", throwIfNotFound: true);
         m_Dialogue_oui = m_Dialogue.FindAction("oui", throwIfNotFound: true);
         m_Dialogue_non = m_Dialogue.FindAction("non", throwIfNotFound: true);
+        m_Dialogue_retour = m_Dialogue.FindAction("retour", throwIfNotFound: true);
+        // viseeManaZone
+        m_viseeManaZone = asset.FindActionMap("viseeManaZone", throwIfNotFound: true);
+        m_viseeManaZone_controleVisee = m_viseeManaZone.FindAction("controleVisee", throwIfNotFound: true);
+        m_viseeManaZone_manaZone = m_viseeManaZone.FindAction("manaZone", throwIfNotFound: true);
+        m_viseeManaZone_annulerManaZone = m_viseeManaZone.FindAction("annulerManaZone", throwIfNotFound: true);
     }
 
     ~@playerControls()
@@ -1248,6 +1406,7 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Ui.enabled, "This will cause a leak and performance issues, playerControls.Ui.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_equipementArme.enabled, "This will cause a leak and performance issues, playerControls.equipementArme.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Dialogue.enabled, "This will cause a leak and performance issues, playerControls.Dialogue.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_viseeManaZone.enabled, "This will cause a leak and performance issues, playerControls.viseeManaZone.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1339,6 +1498,8 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_consommablePrecedent;
     private readonly InputAction m_Player_ouvrirArme;
     private readonly InputAction m_Player_parler;
+    private readonly InputAction m_Player_manaZone;
+    private readonly InputAction m_Player_ouvrirGrimoire;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1415,6 +1576,14 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @parler => m_Wrapper.m_Player_parler;
         /// <summary>
+        /// Provides access to the underlying input action "Player/manaZone".
+        /// </summary>
+        public InputAction @manaZone => m_Wrapper.m_Player_manaZone;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ouvrirGrimoire".
+        /// </summary>
+        public InputAction @ouvrirGrimoire => m_Wrapper.m_Player_ouvrirGrimoire;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1488,6 +1657,12 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @parler.started += instance.OnParler;
             @parler.performed += instance.OnParler;
             @parler.canceled += instance.OnParler;
+            @manaZone.started += instance.OnManaZone;
+            @manaZone.performed += instance.OnManaZone;
+            @manaZone.canceled += instance.OnManaZone;
+            @ouvrirGrimoire.started += instance.OnOuvrirGrimoire;
+            @ouvrirGrimoire.performed += instance.OnOuvrirGrimoire;
+            @ouvrirGrimoire.canceled += instance.OnOuvrirGrimoire;
         }
 
         /// <summary>
@@ -1547,6 +1722,12 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @parler.started -= instance.OnParler;
             @parler.performed -= instance.OnParler;
             @parler.canceled -= instance.OnParler;
+            @manaZone.started -= instance.OnManaZone;
+            @manaZone.performed -= instance.OnManaZone;
+            @manaZone.canceled -= instance.OnManaZone;
+            @ouvrirGrimoire.started -= instance.OnOuvrirGrimoire;
+            @ouvrirGrimoire.performed -= instance.OnOuvrirGrimoire;
+            @ouvrirGrimoire.canceled -= instance.OnOuvrirGrimoire;
         }
 
         /// <summary>
@@ -1878,6 +2059,7 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Dialogue_suivant;
     private readonly InputAction m_Dialogue_oui;
     private readonly InputAction m_Dialogue_non;
+    private readonly InputAction m_Dialogue_retour;
     /// <summary>
     /// Provides access to input actions defined in input action map "Dialogue".
     /// </summary>
@@ -1901,6 +2083,10 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Dialogue/non".
         /// </summary>
         public InputAction @non => m_Wrapper.m_Dialogue_non;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/retour".
+        /// </summary>
+        public InputAction @retour => m_Wrapper.m_Dialogue_retour;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1936,6 +2122,9 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @non.started += instance.OnNon;
             @non.performed += instance.OnNon;
             @non.canceled += instance.OnNon;
+            @retour.started += instance.OnRetour;
+            @retour.performed += instance.OnRetour;
+            @retour.canceled += instance.OnRetour;
         }
 
         /// <summary>
@@ -1956,6 +2145,9 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
             @non.started -= instance.OnNon;
             @non.performed -= instance.OnNon;
             @non.canceled -= instance.OnNon;
+            @retour.started -= instance.OnRetour;
+            @retour.performed -= instance.OnRetour;
+            @retour.canceled -= instance.OnRetour;
         }
 
         /// <summary>
@@ -1989,6 +2181,124 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="DialogueActions" /> instance referencing this action map.
     /// </summary>
     public DialogueActions @Dialogue => new DialogueActions(this);
+
+    // viseeManaZone
+    private readonly InputActionMap m_viseeManaZone;
+    private List<IViseeManaZoneActions> m_ViseeManaZoneActionsCallbackInterfaces = new List<IViseeManaZoneActions>();
+    private readonly InputAction m_viseeManaZone_controleVisee;
+    private readonly InputAction m_viseeManaZone_manaZone;
+    private readonly InputAction m_viseeManaZone_annulerManaZone;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "viseeManaZone".
+    /// </summary>
+    public struct ViseeManaZoneActions
+    {
+        private @playerControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public ViseeManaZoneActions(@playerControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "viseeManaZone/controleVisee".
+        /// </summary>
+        public InputAction @controleVisee => m_Wrapper.m_viseeManaZone_controleVisee;
+        /// <summary>
+        /// Provides access to the underlying input action "viseeManaZone/manaZone".
+        /// </summary>
+        public InputAction @manaZone => m_Wrapper.m_viseeManaZone_manaZone;
+        /// <summary>
+        /// Provides access to the underlying input action "viseeManaZone/annulerManaZone".
+        /// </summary>
+        public InputAction @annulerManaZone => m_Wrapper.m_viseeManaZone_annulerManaZone;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_viseeManaZone; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="ViseeManaZoneActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(ViseeManaZoneActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="ViseeManaZoneActions" />
+        public void AddCallbacks(IViseeManaZoneActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ViseeManaZoneActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ViseeManaZoneActionsCallbackInterfaces.Add(instance);
+            @controleVisee.started += instance.OnControleVisee;
+            @controleVisee.performed += instance.OnControleVisee;
+            @controleVisee.canceled += instance.OnControleVisee;
+            @manaZone.started += instance.OnManaZone;
+            @manaZone.performed += instance.OnManaZone;
+            @manaZone.canceled += instance.OnManaZone;
+            @annulerManaZone.started += instance.OnAnnulerManaZone;
+            @annulerManaZone.performed += instance.OnAnnulerManaZone;
+            @annulerManaZone.canceled += instance.OnAnnulerManaZone;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="ViseeManaZoneActions" />
+        private void UnregisterCallbacks(IViseeManaZoneActions instance)
+        {
+            @controleVisee.started -= instance.OnControleVisee;
+            @controleVisee.performed -= instance.OnControleVisee;
+            @controleVisee.canceled -= instance.OnControleVisee;
+            @manaZone.started -= instance.OnManaZone;
+            @manaZone.performed -= instance.OnManaZone;
+            @manaZone.canceled -= instance.OnManaZone;
+            @annulerManaZone.started -= instance.OnAnnulerManaZone;
+            @annulerManaZone.performed -= instance.OnAnnulerManaZone;
+            @annulerManaZone.canceled -= instance.OnAnnulerManaZone;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ViseeManaZoneActions.UnregisterCallbacks(IViseeManaZoneActions)" />.
+        /// </summary>
+        /// <seealso cref="ViseeManaZoneActions.UnregisterCallbacks(IViseeManaZoneActions)" />
+        public void RemoveCallbacks(IViseeManaZoneActions instance)
+        {
+            if (m_Wrapper.m_ViseeManaZoneActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="ViseeManaZoneActions.AddCallbacks(IViseeManaZoneActions)" />
+        /// <seealso cref="ViseeManaZoneActions.RemoveCallbacks(IViseeManaZoneActions)" />
+        /// <seealso cref="ViseeManaZoneActions.UnregisterCallbacks(IViseeManaZoneActions)" />
+        public void SetCallbacks(IViseeManaZoneActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ViseeManaZoneActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ViseeManaZoneActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="ViseeManaZoneActions" /> instance referencing this action map.
+    /// </summary>
+    public ViseeManaZoneActions @viseeManaZone => new ViseeManaZoneActions(this);
     private int m_KeybordMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -2134,6 +2444,20 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnParler(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "manaZone" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnManaZone(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ouvrirGrimoire" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOuvrirGrimoire(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Ui" which allows adding and removing callbacks.
@@ -2256,5 +2580,41 @@ public partial class @playerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNon(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "retour" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRetour(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "viseeManaZone" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="ViseeManaZoneActions.AddCallbacks(IViseeManaZoneActions)" />
+    /// <seealso cref="ViseeManaZoneActions.RemoveCallbacks(IViseeManaZoneActions)" />
+    public interface IViseeManaZoneActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "controleVisee" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnControleVisee(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "manaZone" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnManaZone(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "annulerManaZone" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAnnulerManaZone(InputAction.CallbackContext context);
     }
 }

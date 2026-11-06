@@ -7,14 +7,19 @@ public class dataConsommable : MonoBehaviour
     public Consommable consommable;
     public int quantiter ;
 
+    
+
     void OnTriggerEnter(Collider other)
     {
+
         if(!other.CompareTag("Player"))
         {
             return;
         }
+
         inventaireManager inv = other.GetComponent<inventaireManager>();
         inv.ajouterConsommable(consommable, quantiter);
         Destroy(gameObject);
+        Debug.Log("je t'es ajouter") ;
     }
 }

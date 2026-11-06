@@ -14,6 +14,8 @@ public class pnj : ScriptableObject
 
     public quete[] queteProposer ;
 
+
+    public boutique boutiqueVendu ;
     public quete queteActuelle(GestionnaireQuete gq)
     {
 

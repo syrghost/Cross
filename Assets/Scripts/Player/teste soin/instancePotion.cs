@@ -8,13 +8,15 @@ public class instancePotion : MonoBehaviour
 {
 
     public GameObject prefabPotionSoin;
+
+    public  GameObject prefabPotionMana ;
    
     public GameObject pointInstancePotion;
 
     private GameObject potionActuelle;
 
     public inventaireManager inv;
-    private bool peutBoire = true;
+    public bool peutBoire = true;
     private bool arcEquipee  =>  inv.armeEquipeeActu.monTypeArme == Arme.typeArme.Arc;
     public switchEmplacementArme switchEmplacementArme ;
 
@@ -49,11 +51,22 @@ public class instancePotion : MonoBehaviour
 
     public void instancierPotion()
     {
+        if (potionActuelle != null ) return ;
+
+        Debug.Log ("je commence l'instanciation") ;
         
         if(arcEquipee && armeEnMain) return ;
         if( armeEnCourDeChangement) return ;
 
-        potionActuelle = Instantiate(prefabPotionSoin , pointInstancePotion.transform);
+        if(inv.consommableEquiper.tuConsomme == Consommable.typeConsommable.potionSoin && potionActuelle == null)
+        {
+            potionActuelle = Instantiate(prefabPotionSoin , pointInstancePotion.transform);
+        }
+        else if( inv.consommableEquiper.tuConsomme == Consommable.typeConsommable.potionMana && potionActuelle == null)
+        {
+            potionActuelle = Instantiate(prefabPotionMana , pointInstancePotion.transform);
+        }
+        
 
         
     }

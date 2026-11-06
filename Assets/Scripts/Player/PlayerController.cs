@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
@@ -24,9 +25,9 @@ public class PlayerController : MonoBehaviour
     public bool inputBloquer = false ;
 
     
-    private CharacterController controller;
+    public  CharacterController controller;
     private Animator animator;
-    private Transform camTransform;
+    public  Transform camTransform;
     private Vector3 velocityY;
 
     public sprint sprint ;
@@ -60,6 +61,21 @@ public class PlayerController : MonoBehaviour
 
     public interagir interagir ;
 
+    public bool enEscalade = false ;
+
+    private bool estEnAir = false ;
+
+    public bool auSol ;
+    
+ 
+    public bool enMontee = false; 
+
+
+
+    public Vector3 distanceMonter = new Vector3(0f , 5f , 0f ) ;
+
+
+   
     
 
     void Start()
@@ -92,6 +108,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+       
+
+        if (enEscalade)
+        {
+            auSol = false ;
+            return;
+
+        }
         CalculerMouvementEtEnvoyerAAnimator();
         AppliquerGravite();
         gererSaut();
@@ -166,28 +190,35 @@ public class PlayerController : MonoBehaviour
 
     void AppliquerGravite()
     {
-        if (controller.isGrounded)
+
+        if (auSol)
         {
+
+            
             if (velocityY.y < 0)
             {
-                velocityY.y = -2f; // Force plaquant le joueur au sol de manière stable
+                velocityY.y = -3f; // Force plaquant le joueur au sol de manière stable
             }
         }
         else
         {
             // Applique la gravité frame par frame si on est dans le vide
             velocityY.y += gravite * Time.deltaTime;
+
+
         }
 
         // Déplacement vertical uniquement lié à la physique
         controller.Move(new Vector3(0, velocityY.y, 0) * Time.deltaTime);
+        animator.SetBool("estEnAir", !auSol) ;
+
     }
 
     void gererSaut()
     {
         Vector2 rawInput = moveAction.ReadValue<Vector2>();
         Vector2 inputDirection = Vector2.ClampMagnitude(rawInput,1f);
-        bool auSol = controller.isGrounded;
+        auSol = controller.isGrounded;
         animator.SetBool("estAuSol", auSol);
        
         bool occuper = inputBloquer || (playerCombat != null && playerCombat.enTrainDattaquer ) || (modeFocus != null && (modeFocus.focusActiver || modeFocus.enTrainDeTirer));
@@ -210,7 +241,18 @@ public class PlayerController : MonoBehaviour
 
     void OnAnimatorMove()
     {
-        if (animator == null) return;
+        if (enMontee)
+        {
+            controller.enabled = false;
+            
+            
+            transform.position += animator.deltaPosition +  distanceMonter ;
+            controller.enabled = true;
+            return;
+        }
+        if (animator == null|| enEscalade )return;
+
+
 
         bool estEnAction = !animator.GetCurrentAnimatorStateInfo(1).IsName("Rien");
         
@@ -255,6 +297,21 @@ public class PlayerController : MonoBehaviour
     {
         controller.Move(direction * vitesse * Time.deltaTime);
     }
+
+    // pour le systeme de grimper
+    public void resetPhysique()
+    {
+        velocityY = Vector3.zero ;
+        vitesseAir = Vector3.zero;
+        enSaut = false ;
+
+        estEnAir =!auSol ;
+        
+        animator.ResetTrigger("saut");
+         
+    }
+
+
 
     // Pour l'animation de tirer 
     public void finDecocherFleche()
